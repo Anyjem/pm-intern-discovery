@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Стажировка Product Manager · Discovery · Гарантия оплаты</title>
+  <style>
+    :root {
+      --ink: #1c1917;
+      --ink-soft: #44403c;
+      --muted: #78716c;
+      --paper: #f6f1e8;
+      --paper-2: #efe8db;
+      --rule: #d6cbb8;
+      --navy: #1e3a45;
+      --navy-2: #2a5160;
+      --accent: #b4532a;
+      --accent-soft: #f0d9cc;
+      --white: #fffcf7;
+      --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Times New Roman", serif;
+      --sans: "Avenir Next", "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      --mono: "SF Mono", "Menlo", "Consolas", monospace;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    a { color: var(--navy); }
+    nav.toc-screen a { color: inherit; text-decoration: none; }
+    nav.toc-screen a:hover { color: var(--accent); }
+
+    .wrap { max-width: 920px; margin: 0 auto; padding: 0 28px 80px; }
+
+    .screen-nav {
+      position: sticky; top: 0; z-index: 20;
+      background: var(--navy); color: var(--white);
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 16px; padding: 10px 28px;
+      font-size: 12px; letter-spacing: .04em; text-transform: uppercase;
+    }
+    .screen-nav a { color: var(--white); text-decoration: none; opacity: .85; }
+    .screen-nav a:hover { opacity: 1; }
+    .screen-nav .nav-links { display: flex; gap: 18px; flex-wrap: wrap; }
+    button.print-btn {
+      border: 1px solid rgba(255,252,247,.4);
+      background: transparent; color: var(--white);
+      padding: 6px 12px; font: inherit; letter-spacing: .04em;
+      text-transform: uppercase; cursor: pointer;
+    }
+
+    .cover {
+      min-height: auto;
+      display: flex; flex-direction: column; justify-content: flex-start;
+      padding: 56px 8px 8px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .cover-flow {
+      margin: 22px 0 0; font-size: 13px; color: var(--navy);
+      letter-spacing: .01em; padding: 10px 0; border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+    .cover-weeks { margin-top: 40px; }
+    .cover-weeks ol {
+      list-style: none; padding: 0; margin: 12px 0 0;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 8px 28px;
+    }
+    .cover-weeks li {
+      margin: 0; padding: 8px 0; border-bottom: 1px solid var(--rule);
+      font-size: 14px; display: flex; gap: 10px;
+    }
+    .cover-weeks b { color: var(--accent); font-weight: 600; min-width: 1.6em; }
+    .kicker {
+      font-size: 12px; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--accent); font-weight: 600;
+    }
+    .cover h1 {
+      font-family: var(--serif);
+      font-weight: 400; font-size: 52px; line-height: 1.08;
+      margin: 18px 0 12px; color: var(--navy); max-width: 18ch;
+    }
+    .cover .lead {
+      font-size: 18px; color: var(--ink-soft); max-width: 48ch; margin: 0;
+    }
+    .cover-meta {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+      margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--rule);
+    }
+    .cover-meta dt { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 0 0 4px; }
+    .cover-meta dd { margin: 0; font-family: var(--serif); font-size: 16px; color: var(--navy); }
+
+    h2 {
+      font-family: var(--serif); font-weight: 400; font-size: 30px;
+      color: var(--navy); margin: 0 0 12px; line-height: 1.2;
+    }
+    h3 {
+      font-family: var(--serif); font-weight: 400; font-size: 20px;
+      color: var(--navy); margin: 28px 0 8px;
+    }
+    h4 {
+      font-size: 13px; letter-spacing: .08em; text-transform: uppercase;
+      color: var(--accent); margin: 22px 0 8px; font-weight: 600;
+    }
+    p { margin: 0 0 12px; }
+    ul, ol { margin: 0 0 14px; padding-left: 1.2em; }
+    li { margin: 0 0 6px; }
+
+    .section { padding: 48px 0 8px; border-top: 1px solid var(--rule); }
+    .section.first { border-top: 0; }
+    .num { color: var(--accent); font-size: 13px; letter-spacing: .16em; text-transform: uppercase; display: block; margin-bottom: 6px; }
+
+    .toc { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 28px; margin-top: 20px; }
+    .toc a { display: block; padding: 8px 0; border-bottom: 1px dotted var(--rule); text-decoration: none; color: var(--ink); }
+
+    table { width: 100%; border-collapse: collapse; font-size: 13.5px; margin: 0 0 18px; }
+    th, td { text-align: left; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid var(--rule); }
+    th { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 600; background: var(--paper-2); }
+    td.hours { white-space: nowrap; font-weight: 600; color: var(--navy); width: 7.5em; }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 12px 0 18px; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 12px 0 18px; }
+
+    .card {
+      background: var(--white); border: 1px solid var(--rule); padding: 16px 18px;
+      page-break-inside: avoid;
+    }
+    .card h3 { margin-top: 0; }
+    .card .label { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+
+    .block {
+      margin: 28px 0 8px; padding-top: 8px;
+      page-break-inside: avoid;
+    }
+    .block-head {
+      display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
+      border-bottom: 2px solid var(--navy); padding-bottom: 10px; margin-bottom: 16px;
+    }
+    .block-head h3 { margin: 0; font-size: 24px; }
+    .badge {
+      font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+      border: 1px solid var(--navy); color: var(--navy); padding: 4px 8px; white-space: nowrap;
+    }
+
+    .callout {
+      border-left: 3px solid var(--accent); padding: 10px 14px; background: var(--accent-soft);
+      margin: 12px 0 16px; page-break-inside: avoid;
+    }
+    .note {
+      border-left: 3px solid var(--navy); padding: 10px 14px; background: var(--paper-2);
+      margin: 12px 0 16px; page-break-inside: avoid;
+    }
+
+    .tmpl {
+      background: var(--white); border: 1px dashed var(--navy-2);
+      padding: 16px 18px; margin: 0 0 18px; font-size: 13.5px;
+      page-break-inside: avoid;
+    }
+    .tmpl .tmpl-title {
+      font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--accent); margin: 0 0 10px; font-weight: 600;
+    }
+    pre, .mono { font-family: var(--mono); font-size: 12.5px; white-space: pre-wrap; line-height: 1.45; margin: 0; }
+
+    footer.doc-end {
+      margin-top: 56px; padding-top: 16px; border-top: 1px solid var(--rule);
+      font-size: 12px; color: var(--muted);
+    }
+
+    @media (max-width: 720px) {
+      .cover h1 { font-size: 36px; }
+      .cover-meta, .toc, .grid-2, .grid-3 { grid-template-columns: 1fr; }
+      .wrap { padding: 0 16px 48px; }
+      .block-head { flex-direction: column; }
+    }
+
+    @media print {
+      .screen-nav { display: none !important; }
+      body { background: white; font-size: 11pt; }
+      .wrap { max-width: none; padding: 0; }
+      @page {
+        size: A4;
+        margin: 14mm 14mm 16mm;
+        @bottom-center {
+          content: "Стажировка PM  ·  Discovery  ·  Гарантия оплаты";
+          font-size: 8pt;
+          color: #78716c;
+        }
+      }
+      a { color: inherit; text-decoration: none; }
+      .cover {
+        min-height: auto;
+        padding: 4mm 0 4mm;
+        border-bottom: 1px solid var(--rule);
+      }
+      .cover h1 { font-size: 30pt; margin: 10px 0 8px; }
+      .cover .lead { font-size: 12pt; }
+      .cover-flow { margin-top: 12px; font-size: 10pt; }
+      .cover-weeks { margin-top: 22px; }
+      .cover-weeks li { padding: 5px 0; font-size: 11pt; }
+      .cover-meta { margin-top: 16px; padding-top: 12px; }
+      .section { padding-top: 8mm; }
+      .break { page-break-before: always; }
+      .card, table, .tmpl, .callout, .note, .block { page-break-inside: avoid; }
+      h2, h3 { break-after: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="screen-nav">
+    <strong>PM Discovery · 2 месяца</strong>
+    <div class="nav-links">
+      <a href="#use">Правила</a>
+      <a href="#product">Продукт</a>
+      <a href="#stack">Стек</a>
+      <a href="#blocks">Блоки</a>
+      <a href="#templates">Шаблоны</a>
+    </div>
+    <button class="print-btn" type="button" onclick="window.print()">Печать / PDF</button>
+  </div>
+
+  <div class="wrap">
+    <header class="cover">
+      <div>
+        <div class="kicker">Программа стажировки · 2 месяца</div>
+        <h1>Product Manager: Discovery</h1>
+        <p class="lead">Курс поиска проблемы и ставки. Практика — на учебном продукте «Гарантия оплаты грузоперевозки». Из Delivery берём только приоритеты, роадмап и зачем нужны метрики.</p>
+        <p class="cover-flow">Проблема → доказательство → гипотеза → ставка → приоритет → роадмап</p>
+        <div class="cover-weeks">
+          <div class="kicker">Десять блоков</div>
+          <ol>
+            <li><b>A</b> Роль и рамка Discovery</li>
+            <li><b>B</b> Продукт и рынок гарантии</li>
+            <li><b>C</b> Проблемное пространство и JTBD</li>
+            <li><b>D</b> Исследование пользователей</li>
+            <li><b>E</b> Синтез инсайтов</li>
+            <li><b>F</b> Гипотезы и эксперименты</li>
+            <li><b>G</b> Решения до разработки</li>
+            <li><b>H</b> Приоритеты и роадмап</li>
+            <li><b>I</b> Метрики как компас</li>
+            <li><b>J</b> Итоговый проект</li>
+          </ol>
+        </div>
+      </div>
+      <dl class="cover-meta">
+        <div><dt>Объём</dt><dd>260 часов</dd></div>
+        <div><dt>Формат</dt><dd>Блоки</dd></div>
+        <div><dt>Ментор</dt><dd>4–6 часов в неделю</dd></div>
+        <div><dt>Выход</dt><dd>Пакет Discovery</dd></div>
+      </dl>
+    </header>
+
+    <section class="section" id="use">
+      <span class="num">01</span>
+      <h2>Правила программы</h2>
+      <p>Цель двух месяцев — чтобы стажёр умел проанализировать текущий функционал, найти проблему перевозчика или грузовладельца, сформулировать ее и проверить, что она действительно есть, решить, что пойдёт в роадмап.</p>
+      <h3>Что считается сданным</h3>
+      <ul>
+        <li>У каждого инсайта есть источник: интервью, наблюдение, тикет, цифра — не «кажется».</li>
+        <li>Артефакт лежит в teamly или Miro, сырьё — в таблице исследований, решения — в Time.</li>
+        <li>Ментор видит, что стажёр отличает проблему клиента от идеи фичи.</li>
+      </ul>
+      <h3>Чего программа сознательно не делает</h3>
+      <p>Из Delivery оставляем два навыка: приоритизация/роадмап и понимание, зачем метрики. Остальное Delivery — после этой программы.</p>
+      <div class="callout"><strong>Норма нагрузки.</strong> Стажёр — рассчитано на 260 часов. Часы в блоках уже включают чтение, полевую работу и сборку артефакта. Ментор: 4–6 часов в неделю на разбор границ блоков и калибровку интервью.</div>
+    </section>
+
+    <section class="section" id="skills">
+      <span class="num">02</span>
+      <h2>Карта компетенций Discovery</h2>
+      <table>
+        <thead><tr><th>Компетенция</th><th>Умеет сам</th><th>Понимает и эскалирует</th></tr></thead>
+        <tbody>
+          <tr><td>Рамка роли</td><td>Отличить проблему от решения, Discovery от Delivery</td><td>Когда пора остановить исследование и отдать в поставку</td></tr>
+          <tr><td>Контекст продукта</td><td>Описать поток гарантии, роли, ценность, риск</td><td>Андеррайтинг, юридический контур, лимиты</td></tr>
+          <tr><td>JTBD и проблема</td><td>Сформулировать работу клиента и проблему с доказательством</td><td>Скрытые работы экспедитора, конфликт ролей в сделке</td></tr>
+          <tr><td>Исследование</td><td>Гайд, набор, интервью, заметки без наводящих вопросов</td><td>Рекрут сложных сегментов, юридические ограничения записи</td></tr>
+          <tr><td>Синтез</td><td>Паттерны, opportunity tree, evidence vs opinion</td><td>Когда выборки мало и нельзя обобщать</td></tr>
+          <tr><td>Гипотезы</td><td>Assumption map, карточка эксперимента, критерий провала</td><td>Стоимость ложной ставки для выплат</td></tr>
+          <tr><td>Решение до кода</td><td>Journey, low-fi, короткий usability-проход</td><td>Не путать прототип со спекой в разработку</td></tr>
+          <tr><td>Приоритет и роадмап</td><td>RICE, ICE, Now-Next-Later, «что не делаем»</td><td>WSJF / cost of delay, зависимости Risk/Legal</td></tr>
+          <tr><td>Метрики</td><td>Сказать, какая цифра подтвердит или убьёт гипотезу</td><td>North star продукта, антиметрики, воронка гарантии</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section" id="product">
+      <span class="num">03</span>
+      <h2>Учебный продукт: гарантия оплаты грузоперевозки</h2>
+      <p>Гарантия закрывает риск неоплаты перевозчику. Если рейс выполнен по условиям, а денег нет, перевозчик получает выплату в лимите, продукт занимается регрессом. Discovery здесь ищет, где ломается доверие — а не как нарисовать ещё один статус.</p>
+      <div class="grid-2">
+        <div class="card"><div class="label">Внешние роли</div>
+          <ul>
+            <li>Перевозчик — кассовый разрыв, «поверят ли мне выплату».</li>
+            <li>Грузовладелец — доступ к машинам vs цена и условия оферты.</li>
+            <li>Экспедитор — часто ведёт обе стороны и документы.</li>
+          </ul>
+        </div>
+        <div class="card"><div class="label">Внутренние роли</div>
+          <ul>
+            <li>Риск / андеррайтинг — скоринг, лимит, стоп-факторы.</li>
+            <li>Финансы, юристы, антифрод, саппорт.</li>
+            <li>Для Discovery саппорт и риск — источники правды не хуже интервью.</li>
+          </ul>
+        </div>
+      </div>
+      <h4>Контур, в котором ищем проблемы</h4>
+      <p class="cover-flow" style="margin-top:0">Оферта → лимит / скоринг → перевозка → претензия → расследование → выплата / отказ → регресс</p>
+      <div class="note">JTBD, которым проверяем каждую возможность: «Когда я ..., я хочу ..., чтобы ...».</div>
+    </section>
+
+    <section class="section" id="stack">
+      <span class="num">04</span>
+      <h2>Стек инструментов Discovery</h2>
+      <table>
+        <thead><tr><th>Слой</th><th>Инструмент</th><th>Зачем</th><th>Блок</th></tr></thead>
+        <tbody>
+          <tr><td>Коммуникации</td><td>Time</td><td>Набор респондентов, договорённости, решения</td><td>A, D, J</td></tr>
+          <tr><td>Знания и брифы</td><td>teamly или Miro</td><td>One-pager, opportunity brief, инсайты</td><td>все</td></tr>
+          <tr><td>Воркшопы и синтез</td><td>Miro</td><td>Journey, affinity, opportunity tree, RAID</td><td>B–G</td></tr>
+          <tr><td>Трекер исследований</td><td>Google Sheets</td><td>Респонденты, цитаты, RICE</td><td>D, H</td></tr>
+          <tr><td>Прототип</td><td>Figma / бумага</td><td>Low-fi, не production-макет</td><td>G</td></tr>
+          <tr><td>Поведение as-is</td><td>Amplitude</td><td>Посмотреть, что уже делают — не строить delivery-дашборд</td><td>I</td></tr>
+          <tr><td>Саппорт как поле</td><td>Тикеты / плейбуки</td><td>Повторяющиеся жалобы «где деньги», «какой лимит»</td><td>D, E</td></tr>
+        </tbody>
+      </table>
+      <div class="callout"><strong>Kaiten в этой программе не основной инструмент.</strong> Карточку можно завести в конце, когда ставка уже доказана. Сначала — проблема и свидетельство.</div>
+    </section>
+
+    <section class="section break" id="map">
+      <span class="num">05</span>
+      <h2>Карта блоков и времени</h2>
+      <p>Сумма диапазонов рассчитана примерно на 260 часов. Блоки идут по порядку: D нельзя начинать без C, H — без хотя бы черновых возможностей из E/F.</p>
+      <table>
+        <thead><tr><th></th><th>Блок</th><th>Часы</th><th>Календарный ориентир</th><th>Выход</th></tr></thead>
+        <tbody>
+          <tr><td>A</td><td>Роль и рамка Discovery</td><td class="hours">8–12 ч</td><td>1–2 дня</td><td>Конспект: где PM ищет, а где уже строит</td></tr>
+          <tr><td>B</td><td>Продукт и рынок гарантии</td><td class="hours">16–24 ч</td><td>2–3 дня</td><td>One-pager + карта стейкхолдеров</td></tr>
+          <tr><td>C</td><td>Проблемное пространство и JTBD</td><td class="hours">16–24 ч</td><td>2–3 дня</td><td>3–5 JTBD и карта возможностей v0</td></tr>
+          <tr><td>D</td><td>Исследование пользователей</td><td class="hours">48–64 ч</td><td>1.5–2 недели</td><td>8–12 интервью + трекер</td></tr>
+          <tr><td>E</td><td>Синтез инсайтов</td><td class="hours">16–24 ч</td><td>2–3 дня</td><td>Паттерны и opportunity tree</td></tr>
+          <tr><td>F</td><td>Гипотезы и эксперименты</td><td class="hours">20–28 ч</td><td>3–4 дня</td><td>Assumption map + 2–3 эксперимента</td></tr>
+          <tr><td>G</td><td>Решения до разработки</td><td class="hours">24–32 ч</td><td>3–5 дней</td><td>Journey + low-fi + 3–5 прогонов</td></tr>
+          <tr><td>H</td><td>Приоритеты и роадмап</td><td class="hours">16–24 ч</td><td>2–3 дня</td><td>RICE + Now-Next-Later</td></tr>
+          <tr><td>I</td><td>Метрики как компас</td><td class="hours">8–12 ч</td><td>1–1.5 дня</td><td>Какая цифра убьёт или подтвердит ставку</td></tr>
+          <tr><td>J</td><td>Итоговый проект</td><td class="hours">16–24 ч</td><td>2–3 дня</td><td>Сводка A–I + файл выводов стажёра</td></tr>
+        </tbody>
+      </table>
+      <div class="note"><strong>Где обычно съедается время.</strong> Блок D: рекрут перевозчиков. Заложите простой. Не заполняйте дыру выдуманными цитатами. Лучше 8 живых разговоров, чем 12 фейковых.</div>
+    </section>
+
+    <section class="section break" id="blocks">
+      <span class="num">06</span>
+      <h2>Описание блоков</h2>
+
+      <article class="block" id="a">
+        <div class="block-head"><h3>A. Роль и рамка Discovery</h3><span class="badge">8–12 ч</span></div>
+        <p>Зачем блок: стажёр перестаёт путать «написать фичу» с «понять, чью боль закрываем». Delivery здесь только как граница: туда уходим, когда проблема доказана.</p>
+        <p>Что сделать: отличить проблему, решение, ставку и бэклог. Разобрать, какие решения на гарантии принимает PM, какие — риск и юристы. Короткий разбор с ментором: примеры «решения в поисках проблемы».</p>
+        <p><strong>Выход.</strong> Одна страница: что такое Discovery на гарантии, чего программа не обещает (релизы), 5 плохих и 5 хороших вопросов клиенту.</p>
+      </article>
+
+      <article class="block" id="b">
+        <div class="block-head"><h3>B. Продукт и рынок гарантии</h3><span class="badge">16–24 ч</span></div>
+        <p>Зачем блок: без карты денег и ролей интервью будут «про удобство сайта». Нужно понять, кто платит, кто рискует, кто может сказать «нет» выплате.</p>
+        <p>Что сделать: value chain, стейкхолдеры (влияние × интерес), конкуренты и заменители (отсрочка, страхование, работа «на своих»). Теневое слушание саппорта или разбор 20 тикетов «где деньги / какой лимит» — если доступ есть.</p>
+        <p><strong>Выход.</strong> One-pager продукта + карта стейкхолдеров в Miro. Человек вне команды понимает, кому платим и зачем продукт существует.</p>
+      </article>
+
+      <article class="block" id="c">
+        <div class="block-head"><h3>C. Проблемное пространство и JTBD</h3><span class="badge">16–24 ч</span></div>
+        <p>Зачем блок: перейти от «фича лимита» к «работе, которую нанимают». JTBD перевозчика, грузовладельца и экспедитора почти наверняка разные.</p>
+        <p>Что сделать: формулировки When / I want to / So I can. Problem statement: кто, в какой ситуации, какая боль, чем доказываем пока (тикеты, слухи, гипотеза). Карта возможностей v0 — ещё без полевых интервью, чтобы потом сверить с реальностью.</p>
+        <p><strong>Выход.</strong> 3–5 JTBD и 5–8 возможностей на дереве. Явно пометить, что пока не доказано.</p>
+      </article>
+
+      <article class="block" id="d">
+        <div class="block-head"><h3>D. Исследование пользователей</h3><span class="badge">48–64 ч</span></div>
+        <p>Самый длинный блок. Цель — 8–12 разговоров: перевозчики с гарантией и без, по возможности грузовладелец или экспедитор, 1–2 внутренних эксперта (саппорт, риск). Плюс разбор качественных следов: тикеты, чаты, отказы.</p>
+        <h4>Практика</h4>
+        <ul>
+          <li>Гайд: прошлое поведение, не «вам понравилась бы фича?». Сначала контекст рейса, потом деньги, потом гарантия.</li>
+          <li>Трекер респондентов: сегмент, дата, согласие, ссылка на заметки.</li>
+          <li>Заметки в день разговора. Цитата отдельно, вывод стажёра — отдельно.</li>
+          <li>Запрещены наводящие: «вам же важно видеть лимит в кабинете?»</li>
+        </ul>
+        <p><strong>Выход.</strong> Трекер + пакет заметок. Минимум 8 состоявшихся интервью. Если рекрут встал — эскалация ментору, не выдуманные персоны.</p>
+        <div class="callout"><strong>Качество важнее плана.</strong> Три глубоких разговора с перевозчиком, который ждал выплату, сильнее десяти «вообще как вам биржа».</div>
+      </article>
+
+      <article class="block" id="e">
+        <div class="block-head"><h3>E. Синтез инсайтов</h3><span class="badge">16–24 ч</span></div>
+        <p>Зачем блок: сырьё не равно понимание. Стажёр собирает паттерны и выкидывает единичные красочные истории, если они не повторяются.</p>
+        <p>Что сделать: affinity в Miro. Для каждого кластера — сила доказательства (сколько человек, какие сегменты). Обновить opportunity tree. Отдельно список опровергнутых гипотез из блока C — это тоже результат.</p>
+        <p><strong>Выход.</strong> 5–7 инсайтов в формате «кто / ситуация / поведение / доказательство / следствие для продукта». Дерево возможностей v1.</p>
+      </article>
+
+      <article class="block" id="f">
+        <div class="block-head"><h3>F. Гипотезы и эксперименты</h3><span class="badge">20–28 ч</span></div>
+        <p>Зачем блок: научиться дешевить проверку до разработки. На гарантии ложная ставка стоит доверия и денег, поэтому критерий провала пишется заранее.</p>
+        <p>Что сделать: assumption map (желаемое / жизнеспособное / осуществимое). 2–3 карточки эксперимента: concierge, письмо-оферта, смоук-лендинг, разбор скрипта саппорта. Не A/B на проде — для этого ещё нет Delivery-контура.</p>
+        <p><strong>Выход.</strong> Карта допущений и 2–3 эксперимента с метрикой «убить/подтвердить» и потолком трудозатрат.</p>
+      </article>
+
+      <article class="block" id="g">
+        <div class="block-head"><h3>G. Решения до разработки</h3><span class="badge">24–32 ч</span></div>
+        <p>Зачем блок: проверить, что направление решения понятно человеку, а не только продакту. Это ещё не хэндофф в разработку.</p>
+        <p>Что сделать: as-is и to-be journey по выбранной возможности (например «понять свой лимит» или «понять отказ»). Low-fi в Figma или на бумаге. 3–5 прогонов с целевой ролью: где застрял, какие слова использовал сам.</p>
+        <p><strong>Выход.</strong> Journey + прототип + заметки прогонов. Список того, что <em>не</em> кладём в роадмап, потому что не выдержало контакт с пользователем.</p>
+      </article>
+
+      <article class="block" id="h">
+        <div class="block-head"><h3>H. Приоритеты и роадмап</h3><span class="badge">16–24 ч</span></div>
+        <p>Единственный полный блок из Delivery. Discovery без выбора — коллекция болей. Стажёр ранжирует 8–12 возможностей гарантии и собирает квартальный Now-Next-Later.</p>
+        <table>
+          <thead><tr><th>Метод</th><th>Когда</th><th>Ловушка новичка</th></tr></thead>
+          <tbody>
+            <tr><td>RICE</td><td>Сравнить разнородные ставки</td><td>Confidence = 100% после трёх интервью</td></tr>
+            <tr><td>ICE</td><td>Быстро отсечь мелочь</td><td>Ease = «мне понятно», а не трудозатрата команды</td></tr>
+            <tr><td>MoSCoW</td><td>Must для первой ставки</td><td>Всё становится Must</td></tr>
+            <tr><td>Cost of delay</td><td>Где задержка бьёт по TAT и оттоку</td><td>Считать CoD без привязки к деньгам перевозчика</td></tr>
+          </tbody>
+        </table>
+        <p>Что сделать: калибровка Reach — не «все на бирже», а «перевозчики с активным лимитом / с претензией». Зависимости Legal / Risk / Finance на доске. Роадмап на одну страницу: Now / Next / Later и явный список «не делаем в этом квартале».</p>
+        <p><strong>Выход.</strong> Таблица RICE + роадмап. Защита перед ментором в роли CPO: почему эта ставка, а не соседняя.</p>
+      </article>
+
+      <article class="block" id="i">
+        <div class="block-head"><h3>I. Метрики как компас</h3><span class="badge">8–12 ч</span></div>
+        <p>Короткий блок: не аналитическая платформа и не delivery-дашборд. Нужно одно — понять, зачем цифры в Discovery.</p>
+        <div class="grid-3">
+          <div class="card"><div class="label">Зачем</div><p>Гипотеза без критерия смерти — мнение. Метрика решает, продолжать ставку или нет.</p></div>
+          <div class="card"><div class="label">Что взять</div><p>1–2 ведущих сигнала (обращения «где деньги», take-up гарантии) и одна антиметрика (отказы ради красивого TAT).</p></div>
+          <div class="card"><div class="label">Чего не делать</div><p>Не собирать 20 графиков. Не путать north star продукта с KPI эксперимента.</p></div>
+        </div>
+        <p>Что сделать: для выбранной ставки написать, какая цифра за 2–4 недели скажет «проблема реальная / решение не то». Посмотреть в Amplitude только as-is воронку, если доступ есть: оферта → принятие → претензия. Если доступа нет — описать, какие события пришлось бы завести, без внедрения.</p>
+        <p><strong>Выход.</strong> Полстраницы: success signal, guardrail, окно решения. Отдельный дашборд не нужен.</p>
+      </article>
+
+      <article class="block" id="j">
+        <div class="block-head"><h3>J. Итоговый проект</h3><span class="badge">16–24 ч</span></div>
+        <p>Зачем блок: собрать всё, что уже сделано в A–I, в один пакет. Новых исследований нет: только сводка, ссылки и решение, что идёт в роадмап.</p>
+        <p>Что сделать: свести one-pager, JTBD, интервью, инсайты, эксперименты, journey, RICE, роадмап и компас метрик в один файл в teamly или Miro. Рядом — отдельный файл выводов: чему научился на практике (шаблон <span class="mono">vyvody-stazhera</span>).</p>
+        <p><strong>Выход.</strong> Итоговый проект по гарантии оплаты + заполненный файл выводов стажёра.</p>
+      </article>
+    </section>
+
+    <section class="section break" id="templates">
+      <span class="num">07</span>
+      <h2>Шаблоны артефактов</h2>
+
+      <div class="tmpl">
+        <div class="tmpl-title">T1. One-pager продукта</div>
+        <pre>Название: Гарантия оплаты грузоперевозки
+Для кого: перевозчик / грузовладелец / экспедитор
+Проблема: риск неоплаты после выполненной перевозки
+Ценность: предсказуемые деньги в лимите vs спор вручную
+Как работает (поток): …
+Границы: не страхуем груз, не кредитуем вне лимита
+Главный риск: ложная выплата / потеря доверия
+Открытые вопросы Discovery: …</pre>
+      </div>
+
+      <div class="tmpl">
+        <div class="tmpl-title">T2. JTBD</div>
+        <pre>Когда [ситуация: рейс закрыт, денег нет / выбираю заказ с гарантией]
+я хочу [работа, не фича]
+чтобы [прогресс в жизни, не «удобный интерфейс»].
+Роль: перевозчик / грузовладелец / экспедитор
+Что нанимают вместо нас: отсрочка, «свои», предоплата, ничего
+Сила доказательства: N интервью / тикеты / пока гипотеза</pre>
+      </div>
+
+      <div class="tmpl">
+        <div class="tmpl-title">T3. Гайд интервью</div>
+        <pre>Контекст последнего рейса (10 мин) — факты, не мнения о продукте
+Деньги и риск (10) — когда ждали оплату, что делали
+Гарантия (10) — откуда узнали, чему не поверили, что случилось
+Лимит / отказ / спор — только если всплыло сами
+Запрещено: «вам же нужна такая-то кнопка?»
+После: 5 цитат + 3 вывода стажёра отдельно</pre>
+      </div>
+
+      <div class="tmpl">
+        <div class="tmpl-title">T4. Инсайт</div>
+        <pre>Кто:
+Ситуация:
+Поведение (что делают, не что говорят что хотели бы):
+Цитата:
+Повторяемость: n из N, какие сегменты
+Следствие для продукта:
+Что это ещё не значит:</pre>
+      </div>
+
+      <div class="tmpl">
+        <div class="tmpl-title">T5. Карточка эксперимента</div>
+        <pre>Гипотеза: если … то … потому что …
+Самое рискованное допущение:
+Как проверяем за ≤ X часов:
+Участники / сегмент:
+Метрика «подтвердить»:
+Метрика «убить»:
+Потолок затрат:
+Решение после: масштабировать / изменить / выкинуть</pre>
+      </div>
+
+      <div class="tmpl">
+        <div class="tmpl-title">T6. RICE (из Delivery)</div>
+        <pre>Возможность | Reach (кого / квартал) | Impact 0.25–3 | Confidence % | Effort чел-нед | Score
+Reach калибровать сегментом гарантии, не «вся биржа»
+Confidence не выше 70, если нет и интервью, и следа в тикетах
+Комментарий: что не вошло в Reach</pre>
+      </div>
+
+      <div class="tmpl">
+        <div class="tmpl-title">T7. Now-Next-Later</div>
+        <pre>Now: одна ставка, которую готовы защищать доказательствами
+Next: что логично после, с зависимостью Risk/Legal
+Later: парковка, не кладбище — с условием возврата
+Не делаем в этом квартале: … и почему</pre>
+      </div>
+
+      <div class="tmpl">
+        <div class="tmpl-title">T8. Компас метрик (короткий)</div>
+        <pre>Ставка:
+Какая цифра скажет, что проблема живая:
+Какая цифра скажет, что решение вредно (антиметрика):
+Окно: 2–4 недели после контакта с пользователем
+Чего не мерим: клики, «нравится макет»</pre>
+      </div>
+    </section>
+
+    <section class="section break" id="eval">
+      <span class="num">08</span>
+      <h2>Рубрика</h2>
+      <p>Оценка ставится по блоку, не «за старание». Цель программы — уровень «применяет» по Discovery-компетенциям и по приоритетам/роадмапу.</p>
+      <table>
+        <thead><tr><th>Уровень</th><th>1 Не владеет</th><th>2 Повторяет</th><th>3 Применяет</th><th>4 Учит других</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Смысл</td>
+            <td>Путает фичу и проблему</td>
+            <td>Делает по шаблону, ломается без гайда</td>
+            <td>Сам ставит вопросы и режет мнения без фактов</td>
+            <td>Разбирает чужое исследование</td>
+          </tr>
+          <tr>
+            <td>Пример</td>
+            <td>«Надо сделать экран лимита»</td>
+            <td>Есть JTBD, но все цитаты в одну сторону</td>
+            <td>Есть опровергнутые гипотезы и Recheck Reach</td>
+            <td>Калибрует гайд команды</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section break" id="glossary">
+      <span class="num">09</span>
+      <h2>Глоссарий</h2>
+      <table>
+        <thead><tr><th>Термин</th><th>Смысл здесь</th></tr></thead>
+        <tbody>
+          <tr><td>Discovery</td><td>Поиск проблемы и ставки, пока дешево ошибаться.</td></tr>
+          <tr><td>Delivery</td><td>Поставка уже выбранного. В программе — только приоритеты, роадмап и зачем метрики.</td></tr>
+          <tr><td>JTBD</td><td>Работа, которую клиент «нанимает» продукт сделать. Не экран.</td></tr>
+          <tr><td>Opportunity</td><td>Неудовлетворённая потребность с доказательством, ещё не фича.</td></tr>
+          <tr><td>Insight</td><td>Повторяющийся паттерн поведения + следствие для продукта.</td></tr>
+          <tr><td>Assumption</td><td>То, без чего ставка развалится, и это ещё не проверено.</td></tr>
+          <tr><td>Reach / Impact / Confidence / Effort</td><td>Четыре рычага RICE. Confidence без поля — самообман.</td></tr>
+          <tr><td>Now-Next-Later</td><td>Роадмап без фальшивых дат: что сейчас, что потом, что не сейчас.</td></tr>
+          <tr><td>North star</td><td>Одна метрика ценности продукта. Не KPI эксперимента.</td></tr>
+          <tr><td>Антиметрика</td><td>Цифра, которая «улучшится», если мы навредим (отказы ради TAT).</td></tr>
+          <tr><td>Concierge</td><td>Проверка руками, без продукта: продакт сам проводит сценарий.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <footer class="doc-end">
+      Стажировка Product Manager · Discovery · учебный продукт «Гарантия оплаты грузоперевозки». Десять блоков с оценкой часов. Delivery в программе — приоритеты, роадмап и короткий компас метрик.
+    </footer>
+  </div>
+</body>
+</html>

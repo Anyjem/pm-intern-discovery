@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Вопросы ментора на границе блока · Discovery</title>
+  <style>
+    :root {
+      --ink: #1c1917;
+      --ink-soft: #44403c;
+      --muted: #78716c;
+      --paper: #f6f1e8;
+      --paper-2: #efe8db;
+      --rule: #d6cbb8;
+      --navy: #1e3a45;
+      --accent: #b4532a;
+      --white: #fffcf7;
+      --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Times New Roman", serif;
+      --sans: "Avenir Next", "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.55;
+    }
+    .wrap { max-width: 920px; margin: 0 auto; padding: 48px 28px 80px; }
+    .kicker {
+      font-size: 12px; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--accent); font-weight: 600;
+    }
+    h1 {
+      font-family: var(--serif);
+      font-weight: 400; font-size: 36px; line-height: 1.15;
+      margin: 12px 0 12px; color: var(--navy);
+    }
+    p { margin: 0 0 18px; color: var(--ink-soft); max-width: 56ch; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0 0; }
+    th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--rule); }
+    th { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 600; background: var(--paper-2); }
+    td:first-child { width: 2.4em; font-weight: 600; color: var(--navy); }
+    footer {
+      margin-top: 40px; padding-top: 14px; border-top: 1px solid var(--rule);
+      font-size: 12px; color: var(--muted);
+    }
+    @media print {
+      body { background: white; font-size: 11pt; }
+      .wrap { max-width: none; padding: 0; }
+      @page {
+        size: A4;
+        margin: 16mm 14mm 16mm;
+        @bottom-center {
+          content: "Ментор  ·  Discovery  ·  вопросы на границе блока";
+          font-size: 8pt;
+          color: #78716c;
+        }
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="kicker">Стажировка PM · Discovery · для ментора</div>
+    <h1>Вопросы на границе блока</h1>
+    <p>Разбор — на сдаче блока, не по календарю. Один вопрос обязателен. Задача — отличить доказательство от мнения, а не дописать артефакт за стажёра.</p>
+    <table>
+      <thead><tr><th>Блок</th><th>Вопрос</th></tr></thead>
+      <tbody>
+        <tr><td>A</td><td>Это проблема клиента или идея, которую жалко бросить?</td></tr>
+        <tr><td>B</td><td>Кто внутри компании может запретить выплату — и вы с ним говорили?</td></tr>
+        <tr><td>C</td><td>Чью работу описывает JTBD, если экспедитор ведёт обе стороны?</td></tr>
+        <tr><td>D</td><td>Где наводящий вопрос в гайде?</td></tr>
+        <tr><td>E</td><td>Этот инсайт повторился или это одна яркая история?</td></tr>
+        <tr><td>F</td><td>Что будет, если эксперимент «подтвердит» ложную выплатную логику?</td></tr>
+        <tr><td>G</td><td>Пользователь сам назвал это словами или вы подсказали экран?</td></tr>
+        <tr><td>H</td><td>Что вы сознательно не кладёте в Now — и почему это честно?</td></tr>
+        <tr><td>I</td><td>Какая цифра может вырасти, если мы просто начнём всем отказывать?</td></tr>
+        <tr><td>J</td><td>Все ли артефакты A–I собраны в одном пакете, и чему вы научились на практике — не на теории?</td></tr>
+      </tbody>
+    </table>
+    <footer>Учебный продукт «Гарантия оплаты грузоперевозки». Не входит в пакет стажёра.</footer>
+  </div>
+</body>
+</html>
